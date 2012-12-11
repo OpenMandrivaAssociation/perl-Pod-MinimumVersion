@@ -1,23 +1,23 @@
 %define upstream_name    Pod-MinimumVersion
 %define upstream_version 50
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Report object from Pod::MinimumVersion
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Report object from Pod::MinimumVersion
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(IO::String)
-BuildRequires: perl(List::Util)
-BuildRequires: perl(Pod::Parser)
-BuildRequires: perl(Test)
-BuildRequires: perl(version)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(IO::String)
+BuildRequires:	perl(List::Util)
+BuildRequires:	perl(Pod::Parser)
+BuildRequires:	perl(Test)
+BuildRequires:	perl(version)
+BuildArch:	noarch
 
 %description
 'Pod::MinimumVersion' parses the POD in a Perl script, module, or document,
@@ -28,25 +28,24 @@ it with 'pod2man' etc.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml
 %{_bindir}/pod-minimumversion
 %{_mandir}/man3/*
 %{_mandir}/man1/pod-minimumversion.1*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Wed May 04 2011 Guillaume Rousse <guillomovitch@mandriva.org> 50.0.0-1mdv2011.0
++ Revision: 666352
+- import perl-Pod-MinimumVersion
 
