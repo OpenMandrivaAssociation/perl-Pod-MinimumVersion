@@ -8,7 +8,7 @@ Release:	4
 Summary:	Report object from Pod::MinimumVersion
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
