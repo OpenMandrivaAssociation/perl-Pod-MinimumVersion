@@ -2,14 +2,14 @@
 %define upstream_version 50
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 
 Summary:	Report object from Pod::MinimumVersion
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://user42.tuxfamily.org/pod-minimumversion/index.html
+Source0:	https://cpan.metacpan.org/authors/id/K/KR/KRYDE/Pod-MinimumVersion-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
