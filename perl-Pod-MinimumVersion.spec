@@ -1,15 +1,13 @@
 %define upstream_name    Pod-MinimumVersion
-%define upstream_version 50
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	50
+Release:	6
 
 Summary:	Report object from Pod::MinimumVersion
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://user42.tuxfamily.org/pod-minimumversion/index.html
-Source0:	https://cpan.metacpan.org/authors/id/K/KR/KRYDE/Pod-MinimumVersion-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/K/KR/KRYDE/Pod-MinimumVersion-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -26,7 +24,7 @@ and reports what version of Perl is required to process the directives in
 it with 'pod2man' etc.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
