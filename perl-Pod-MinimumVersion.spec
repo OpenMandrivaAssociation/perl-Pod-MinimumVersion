@@ -1,7 +1,7 @@
 %define upstream_name    Pod-MinimumVersion
 Name:		perl-%{upstream_name}
 Version:	50
-Release:	6
+Release:	7
 
 Summary:	Report object from Pod::MinimumVersion
 License:	GPL+ or Artistic
@@ -36,6 +36,8 @@ perl Makefile.PL INSTALLDIRS=vendor
 %install
 %makeinstall_std
 
+find %{buildroot} -type f -name '*.pm' -exec chmod -x {} +
+if [ -d %{buildroot}%{_bindir} ]; then find %{buildroot}%{_bindir} -type f -exec chmod 755 {} +; fi
 %files
 %doc Changes META.yml
 %{_bindir}/pod-minimumversion
